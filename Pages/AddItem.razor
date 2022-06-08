@@ -1,0 +1,77 @@
+﻿@page "/item"
+@inherits AddItemBase
+
+<div class="main__item__right">
+    <EditForm Model="@Items">
+        <div class="main__item__right__from">
+            <div class="row">
+                <div class="add__item__header pt-3">
+                    <a href="/add_all"><img src="arrow-left.svg"></a>
+                    <h3 class="add__item__h3">Add Item</h3>
+                </div>
+                <div class="col-6">
+                    <input type="text" class="form-control" placeholder="Item name" aria-label="Item name" @bind="@Items.ItemName"/>
+                </div>
+                <div class="col-6">
+                     @*<SfMultiSelect TValue="string[]" TItem="GameFields" Mode="@VisualMode.Default" Placeholder="Favorite Sports" DataSource="@Games">
+                        <MultiSelectFieldSettings Text="Text" Value="ID"></MultiSelectFieldSettings>
+                    </SfMultiSelect>*@
+                    <select  class="form-select" aria-label="Default select example" @bind="@Items.ItemCategory">
+                        <option value="Item Category">Item Category</option>
+                        <option value="Laboratory">Laboratory</option>
+                        <option value="Consultation">Consultation</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <input type="text" class="form-control" placeholder="Item Quantity" aria-label="Item Quantity" @bind="@Items.ItemQuantity" />
+                </div>
+                <div class="col-6">
+                    <input type="text" class="form-control" placeholder="Unit" aria-label="Unit" @bind="@Items.Unit"  />
+                </div>
+                <div class="col-6">
+                    <input type="text" class="form-control" placeholder="Net Amount" aria-label="Net Amount" @bind="@Items.NetAmount" />
+                </div>
+                <div class="col-6">
+
+                     @*<SfMultiSelect TValue="string[]" TItem="GameFields" Mode="@VisualMode.Default" Placeholder="Favorite Sports" DataSource="@Games">
+                         <MultiSelectFieldSettings Text="Text" Value="ID"></MultiSelectFieldSettings>
+                     </SfMultiSelect>*@
+                   <select  class="form-select" aria-label="Default select example" @bind="@Items.Tax">
+                        <option selected>Tax</option>
+                        <option>VAT</option>
+                        <option>Direct Payment</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <input type="text" class="form-control" placeholder="Gross Amount" aria-label="Gross Amount" disabled value="@GrossAmount"/>
+                </div>
+                <div class="col-6">
+                    <select  class="form-select" aria-label="Default select example" @bind="@Items.Discount" >
+                        <option>Discount</option>
+                        <option>Chrismass</option>
+                        <option>Fast sales</option>
+                    </select>
+                </div>
+                @*<div class="col-6">
+                    <SfMultiSelect TValue="string[]" TItem="GameFields" Mode="@VisualMode.Default" Placeholder="Favorite Sports" DataSource="@Games">
+                        <MultiSelectFieldSettings Text="Text" Value="ID"></MultiSelectFieldSettings>
+                    </SfMultiSelect>
+                </div>
+                <div class="col-6 mt-5">
+                  <select class="form-select" multiple aria-label="size 3 select example">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                  </select>
+                </div>*@
+
+                <div class="d-inline">
+                    <button type="submit" class="btn-add" @onclick="@FormSubmitted" value="Save">Add</button>
+                    <button class="btn-cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </EditForm>
+</div>
+
